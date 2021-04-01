@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const AddNote = () => {
+const AddNote = ({setNotes, notes}) => {
 
   const [note, setNote] = useState('');
 
@@ -10,7 +10,11 @@ const AddNote = () => {
 
   const submitNote = (event) => {
     event.preventDefault()
-    console.log(note + '12345')
+    const sentNote = {
+      'id': notes.length+1, 
+      'description': note
+    }
+    setNotes([...notes, {...sentNote}])
   }
 
   return (
