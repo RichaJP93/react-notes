@@ -1,9 +1,11 @@
 import './App.css';
+import AddNote from './components/AddNote'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-    
+      <h1>Notes</h1>
+      <AddNote />
     </div>
   );
 }
