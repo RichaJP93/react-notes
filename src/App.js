@@ -16,15 +16,26 @@ const App = () => {
     setNotes(notes.filter(note => note.id !== id))
   }
 
-  const editNote = () => {
-    
-  }
+  const editNote = (note, id) => {    
+    const newList = notes.map((item) => {
+      if (item.id === id) {
+        const updatedNote = {
+          ...item,
+          description: note
+        }
+        return updatedNote
+      }
+      return item
+    })
 
+    setNotes(newList)
+  }
+  
   return (
     <div className="App">
       <h1>Notes</h1>
       <AddNote setNotes={setNotes} notes={notes}/>
-      <NoteList deleteNote={deleteNote} notes={notes} setNotes={setNotes}/>
+      <NoteList deleteNote={deleteNote} editNote={editNote} notes={notes}/>
     </div>
   );
 }

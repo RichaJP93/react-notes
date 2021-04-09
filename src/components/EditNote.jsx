@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const EditNote = ({id, isEditing, setIsEditing, notes, setNotes, previousText}) => {
+const EditNote = ({id, isEditing, setIsEditing, previousText, editNote}) => {
 
   const [note, setNote] = useState(previousText);
 
@@ -9,24 +9,8 @@ const EditNote = ({id, isEditing, setIsEditing, notes, setNotes, previousText}) 
   }
 
   const handleSubmit = (note) => {
-    submitNote(note);
+    editNote(note, id);
     setIsEditing(!isEditing)
-  }
-
-  const submitNote = (note) => {
-
-    const newList = notes.map((item) => {
-      if (item.id === id) {
-        const updatedNote = {
-          ...item,
-          description: note
-        }
-        return updatedNote
-      }
-      return item
-    })
-
-    setNotes(newList)
   }
 
   return (

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import EditNote from './EditNote'
 
-const Note = ({id, description, deleteNote, notes, setNotes}) => {
+const Note = ({id, description, deleteNote, editNote}) => {
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -15,11 +15,10 @@ const Note = ({id, description, deleteNote, notes, setNotes}) => {
       </div>
        : 
         <EditNote 
+          editNote={editNote}
           id={id} 
           isEditing={isEditing} 
-          setIsEditing={setIsEditing} 
-          notes={notes} 
-          setNotes={setNotes}
+          setIsEditing={setIsEditing}
           previousText={description}
         />
       }
