@@ -12,11 +12,19 @@ const App = () => {
     setNotes(data)
   }, [])
 
+  const deleteNote = (id) => {
+    setNotes(notes.filter(note => note.id !== id))
+  }
+
+  const editNote = () => {
+    
+  }
+
   return (
     <div className="App">
       <h1>Notes</h1>
       <AddNote setNotes={setNotes} notes={notes}/>
-      <NoteList notes={notes}/>
+      <NoteList deleteNote={deleteNote} notes={notes} setNotes={setNotes}/>
     </div>
   );
 }
